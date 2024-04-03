@@ -1,0 +1,42 @@
+psuedocode file, do not run
+
+the wordsearch will generate a random word search puzzle, consisting of vertical and horizontal words, none will be backwards. i'm considering diagonals too. the rest of the game board, as usual, will consist of random letters.
+we will need a gameboard, a list of words, and some type of functionality to select a string of letters in the board.
+
+Classes:
+class GameBoard:
+-- undecided on how i want to implement this at the moment. likely a 10x10 matrix, we fit the words in first, maybe 3 vertical 2 horizontal, then fill in the rest. numbers here are interchangeable.
+-- we probably won't need a special class object for every tile. we just need a character string that we can grab from a certain spot. thinking about using lists for this.
+-- function list:
+  def __init__(self):
+    self.row1 = [randomletter for i in range(10)]
+    self.rowlist.append(row1)
+    ...
+  def build(self, wordlist):
+    for row in self.rowlist: #iterates through each row
+      word = wordlist.pop(random) #pop a word
+      j = randint(0, 9-len(word)) #get a random position to start at, assuring we won't exceed the length of the list
+      for k in len(word): #for each letter in the word, add it into the row starting at that random position.
+        row[j] = word[k]
+        k += 1
+        j += 1
+by this point we'll have the first 5 or so (numbers interchangeable) words in the first 5 rows, so it's just a matter of shaking up the row order before we print.
+this implements horizontal words pretty easily. process can be changed when we add vertical and diagonal words.
+
+wordbank = [
+"HOUSE",
+"FIRETRUCK",
+"FOO",
+"BAR",
+...]
+
+wordlist = [random.choice(wordbank) for i in range(5)]
+
+player can select a string of chars from the board, and it makes a string object.
+for i in wordlist:
+  if player_selection_string == i:
+    wordlist.pop(i)
+and we cross it from the UI list and maybe show on the board that it's been found.
+
+if len(wordlist) == 0:
+  game.win() or something like that
